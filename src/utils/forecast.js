@@ -14,12 +14,14 @@ const forecast = (lat, long, callback) => {
         }
         else
         {
+            const summary = response.body.daily.data[0].summary
             const data = response.body.currently
             const prob = data.precipProbability * 100
             callback(undefined, {
                 temp: data.temperature,
                 precipProb: prob,
-                summary: data.summary
+                summary: summary,
+                currentCond: data.summary
             })
  //           console.log(`It is currently ${data.temperature} degrees with a ${prob}% chance of rain.`)
         }

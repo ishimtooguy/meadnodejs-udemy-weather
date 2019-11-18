@@ -61,8 +61,8 @@ app.get('/weather', (req, res) => {
                     error: err
                 })
             }
-            const {temp, precipProb, summary} = forecastData
-            const msg = `Current forecast: ${summary} and ${temp} degrees with a ${precipProb}% chance of precipitation.`
+            const {temp, precipProb, summary, currentCond} = forecastData
+            const msg = `Forecast: ${summary} ${currentCond} and ${temp} degrees with a ${precipProb}% chance of precipitation.`
     
             res.send({
                 forecast: msg,
